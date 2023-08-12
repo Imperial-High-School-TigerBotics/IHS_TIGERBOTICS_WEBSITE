@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tigerbotics 8119</title>
+    <script src="https://kit.fontawesome.com/82a70df38e.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://ihs.imperialusd.org/subsites/Arceo/pictures/Tigerbotics-Logo.png" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap');
+
+        body {
+            background: #0e0e0e;
+            background-attachment: fixed;
+            font-family: "Roboto Slab";
+            overflow: hidden;
+            user-select: none;
+            text-shadow: 1px 1px 1px black, 2px 2px 1px black, 3px 3px 1px black;
+        }
+
+        #title_card {
+            color: #a70000;
+            font-size: 100px;
+            font-weight: 400;
+            position: absolute;
+            top: -75px;
+            left: 0;
+            margin-left: 50px;
+            width: 525px;
+            height: 150px;
+            overflow: hidden;
+        }
+            #title_card span {
+                position: absolute;
+                white-space: nowrap;
+                top: 0;
+                left: 0;
+                transition: 300ms linear transform;
+            }
+                #title_card span:hover {
+                    transform: translate(calc(-100% + 525px));
+                    transition: 3s linear transform;
+                }
+
+        #title_list {
+            position: absolute;
+            left: 0;
+            margin-left: 45px;
+            top: 200px;
+            list-style-type: none;
+        }
+
+        .title_button {
+            font-family: "Roboto Slab";
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding-left: 0;
+            user-select: none;
+            cursor: pointer;
+            font-weight: 300;
+            border-left: solid #a70000;
+            border-width: 0;
+            font-size: 50px;
+            transition: ease 0.3s;
+            transition-property: color padding-left border-width;
+            white-space: nowrap;
+        }
+        .title_button:hover {
+            padding-left: 20px;
+            border-width: 3px;
+        }
+
+        .title_button:not(:last-child) {
+            margin-bottom: 25px;
+        }
+
+        @media only screen and (max-width: 850px) {
+            #title_card, #title_list {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+                .title_button:hover {
+                    padding-left: 0;
+                    border-width: 0;
+                    color: #a70000;
+                }
+        }
+
+        #main_stuff {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            border-left: 5px #424242 solid;
+            width: 800px;
+            height: 650px;
+            overflow: hidden;
+            transition: 400ms ease;
+            transition-property: height, top;
+        }
+
+        #other_stuff {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            width: calc(100% - 50px);
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            transition: 400ms ease;
+            transition-property: transform, left;
+        }
+
+        .desc {
+            color: white;
+            font-weight: 300;
+            font-size: 40px;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 545px;
+            text-align: right;
+            transition: 400ms cubic-bezier(.22,1.08,.72,1.19);
+            transition-property: left, transform, text-align;
+        }
+
+        .main_class {
+            transition: 400ms cubic-bezier(1,-0.41,.92,1.07) left;
+        }
+        
+        #down_there {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 1000px;
+        }
+
+        .description {
+            color: white;
+            font-size: 40px;
+            font-weight: 300;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 545px;
+            height: 400px;
+            text-align: center;
+            display: none;
+        }
+
+        #escape_message {
+            color: white;
+            font-size: 12px;
+            top: 0;
+            left: 10px;
+            position: absolute;
+            display: none;
+            font-weight: 300;
+        }
+
+        #red_banner {
+            position: absolute;
+            right: 0;
+            top: -100px;
+        }
+
+        #banner {
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+
+        .banner_items {
+            position: absolute;
+            top: 62px;
+            font-size: 50px;
+            color: white;
+        }
+
+        #banner_logo {
+            right: 10px;
+            top: 72px;
+        }
+
+        #banner_instagram {
+            right: 85px;
+            transition: top ease 0.2s;
+        }
+
+            #banner_instagram:hover {
+                top: 56px;
+            }
+
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <img id="red_banner" src="https://i.imgur.com/SLcE9q3.png" height="500" />
+        <img id="banner_logo" src="https://ihs.imperialusd.org/subsites/Arceo/pictures/Tigerbotics-Logo.png" class="banner_items" height="50" />
+        <a id="banner_instagram" title="Instagram Page" class="banner_items" href="https://www.instagram.com/tigerbotics8119/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p id="escape_message">psst... press escape to return to the menu!</p>
+    <div id="main_stuff">
+        <p id="title_card" class="main_class"><span>Tigerbotics FRC Team #8119</span></p>
+        <ul id="title_list" class="main_class">
+            <li class="title_button" onmouseout="sample_desc('about', false)" onmouseover="sample_desc('about', true)" onclick="open_desc('about', true)">Our Team</li>
+            <li class="title_button" onmouseout="sample_desc('robots', false)" onmouseover="sample_desc('robots', true)" onclick="open_desc('robots', true)">Robots</li>
+            <li class="title_button" onmouseout="sample_desc('sponsors', false)" onmouseover="sample_desc('sponsors', true)" onclick="open_desc('sponsors', true)">Sponsors</li>
+        </ul>
+    </div>
+    <div id="other_stuff">
+        <div id="about" class="desc">
+            We are a high school robotics team that is passionate about building robots and participating in the FIRST Robotics Competition. Our team has a rich history of success, and we are dedicated to continuing that tradition by working hard and learning from each other.
+        </div>
+        <div id="robots" class="desc">
+            robots
+        </div>
+        <div id="sponsors" class="desc">
+            sponsors
+        </div>
+    </div>
+    <div id="down_there">
+        <div id="about_description" class="description">
+            *insert other information here*
+        </div>
+        <div id="robots_description" class="description">
+            *insert other robot information here*
+        </div>
+        <div id="sponsors_description" class="description">
+            *insert other sponsor information here*
+        </div>
+    </div>
+
+    <script>
+        scrollTo(0, 0);
+        let others = document.getElementById("other_stuff");
+        let main_stuff = document.getElementsByClassName("main_class");
+        let main = document.getElementById("main_stuff");
+        var in_menu = true;
+        var transitioning_out_of_menu;
+        var current_type = '';
+        var esc_msg_needed = true;
+
+        window.onkeydown = function (e) {
+            if (e.key == 'Escape' && !in_menu) open_desc(current_type, false);
+        }
+
+        function sample_desc(type, opening) {
+            if (!transitioning_out_of_menu && in_menu) {
+                let the = document.getElementById(type);
+                the.style.transition = '400ms cubic-bezier(.22,1.08,.72,1.19)';
+                the.style.left = opening ? 'calc(100% - 595px)' : '100%';
+            }
+        }
+        function open_desc(type, opening) {
+            let the = document.getElementById(type);
+            if (opening) {
+                document.getElementById(type + "_description").style.display = 'block';
+                if (esc_msg_needed)
+                    document.getElementById("escape_message").style.display = 'block';
+                document.body.style.overflow = 'overlay';
+                current_type = type;
+                transitioning_out_of_menu = true;
+                for (let i = 0; i < main_stuff.length; i++) {
+                    main_stuff[i].style.transition = '400ms cubic-bezier(1,-0.41,.92,1.07)';
+                    main_stuff[i].style.left = '-100%';
+                }
+                setTimeout(function () {
+                    main.style.height = '0';
+                    main.style.top = `${650 / 2 + 100}px`;
+                    in_menu = false;
+                    transitioning_out_of_menu = false;
+                }, 350);
+            } else {
+                document.getElementById(current_type + "_description").style.display = "none";
+                esc_msg_needed = false;
+                document.getElementById("escape_message").style.display = 'none';
+                scrollTo(0, 0);
+                document.body.style.overflow = 'hidden';
+                in_menu = true;
+                main.style.height = '650px';
+                main.style.top = '100px';
+                setTimeout(function () {
+                    for (let i = 0; i < main_stuff.length; i++) {
+                        main_stuff[i].style.transition = '400ms cubic-bezier(.22,1.08,.72,1.19)';
+                        main_stuff[i].style.left = '0';
+                    }
+                }, 270);
+            }
+
+            the.style.transition = '400ms ease';
+            the.style.textAlign = opening ? 'center' : 'right';
+            the.style.transform = opening ? 'translateX(-50%)' : 'none';
+            the.style.left = opening ? '50%' : '100%';
+        }
+        
+    </script>
+</body>
+</html>
